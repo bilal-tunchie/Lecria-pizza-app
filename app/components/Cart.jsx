@@ -32,9 +32,7 @@ export default function Cart(){
     } = useStateContext();
 	
 	useEffect(() => {
-		if (Object.keys(authentication).length) {
-			localStorage.setItem('cart', JSON.stringify(cart));
-		}
+        localStorage.setItem('cart', JSON.stringify(cart));
 	}, [authentication, cart]);
     
     const sumOfTotalCost = cart?.reduce( (accu, curntVal)  => {

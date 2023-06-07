@@ -11,9 +11,7 @@ export default function Favorite() {
     const { favorite, setFavorite, authentication } = useStateContext();
 
     useEffect(() => {
-		if (Object.keys(authentication).length) {
-			localStorage.setItem('favorite', JSON.stringify(favorite));
-		}
+        localStorage.setItem('favorite', JSON.stringify(favorite));
 	}, [authentication, favorite]);
     
 
