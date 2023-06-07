@@ -32,9 +32,9 @@ export default function Login() {
 
     const signinUserImmediately = () => {
         setAuthentication({ 
-            email: "user1@goutlook.com", 
-            phone: '+966562538613', 
-            password: 12345678
+            email: "user1@outlook.com", 
+            phone: '966562538613',
+            password: 12345678 
         })
         setLoading(true)
         toast.success('قمت بالتسجيل بنجاح')
