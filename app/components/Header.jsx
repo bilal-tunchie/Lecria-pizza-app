@@ -120,13 +120,19 @@ export default function Header() {
                                     id === 3 && cartContainer.current.classList.add('pop-up')
                                 }}
                             >
+                                { id !== 3 ? 
                                 <Link 
-                                    href={id !== 3 ? to : ''} 
-                                    className={ isActive === to && id !== 3 ? 'active' : ''} 
+                                    href={to} 
+                                    className={ isActive === to ? 'active' : ''} 
                                 >
                                     <FontAwesomeIcon icon={icon} />
                                     <span>{value}</span>
                                 </Link>
+                                :
+                                <span>
+                                    <FontAwesomeIcon icon={icon} />
+                                    <span>{value}</span>
+                                </span>}
                             </li> 
                         )
                     })}

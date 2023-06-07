@@ -163,23 +163,27 @@ nav .close-nav {
   display: none;
 }
 
-.menu-control a {
+.menu-control a,
+.menu-control li > span {
   font-size: 14px;
   font-weight: 500;
 }
 
-.menu-control a:not(.login) {
+.menu-control a:not(.login), 
+.menu-control li > span {
   color: var(--color-primary);
   padding: 3px 6px;
   border-radius: 6px;
 }
 
-.menu-control a.active:not(.login) {
+.menu-control a.active:not(.login),
+.menu-control li > span.active {
   background-color: var(--color-light-shade);
   font-weight: bold;
 }
 
-.menu-control a:not(.login):hover {
+.menu-control a:not(.login):hover, 
+.menu-control li > span:hover {
   background-color: var(--color-light-shade);
 }
 
@@ -197,6 +201,10 @@ nav .close-nav {
 
 .menu-control .menu-control-cart-button {
   display: none;
+}
+
+.menu-control li {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1200px) {
@@ -245,7 +253,8 @@ nav .close-nav {
       box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;    
   }
 
-  .menu-control a:not(.login) {
+  .menu-control a:not(.login),
+  .menu-control li > span {
       display: inline-flex;
       align-items: center;
       width: 100%;
