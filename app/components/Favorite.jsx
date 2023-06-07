@@ -19,7 +19,7 @@ export default function Favorite() {
         <>
             {!favorite.length && <div className="empty-cart-con">
                 <span><FontAwesomeIcon icon={faHeart} /></span>
-                <p>البيتزا اللي تحبها تلقاها هنا،<br/> اضفها للمفضلة
+                <p>البيتزا اللي تحبها تلقاها هنا،<br/> اضفها للمفضلة 
                 الحين</p>
             </div>}
             <div className="total-cart-items">

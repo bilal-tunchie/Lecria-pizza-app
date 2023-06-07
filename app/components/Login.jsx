@@ -4,6 +4,7 @@ import 'react-telephone-input/css/default.css'
 
 import { useState, useEffect } from 'react'
 import Image from "next/image"
+import { useRouter } from 'next/navigation';
 import ReactTelInput  from "react-telephone-input";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons'
@@ -16,6 +17,7 @@ import flags  from "@public/images/flags.png";
 
 export default function Login() {
 
+    const router = useRouter();
     const { authentication, setAuthentication, customOrderContainer, setLoading, setDisplayCart } = useStateContext();
     const [login, setLogin] = useState('تسجيل الدخول');
     
@@ -27,6 +29,20 @@ export default function Login() {
         setDisplayCart(false)
         customOrderContainer.current.classList.remove('pop-up')
     } , [])
+
+    const signinUserImmediately = () => {
+        setAuthentication({ 
+            email: "user1@goutlook.com", 
+            phone: '+966562538613', 
+            password: 12345678
+        })
+        setLoading(true)
+        toast.success('قمت بالتسجيل بنجاح')
+        setTimeout(()=> {
+            router.push('/')
+            setLoading(false)
+        }, 2500)
+    }
 
     const phoneLogin = "https://mponlineassets.s3.me-south-1.amazonaws.com/ksa/assets/images/phoneLogin.svg"
 
@@ -64,6 +80,17 @@ export default function Login() {
             </div>
             <div className='image'>
                 <Image src={logo} alt="Login" width={500} height={500} />
+            </div>
+            <div className='skip-login'>
+                <p>ما لك خلق تسجل اضغط هنا</p>
+                <span 
+                    onClick={signinUserImmediately}
+                >
+                    تسجيل دخول تلقائي
+                    <div class="arrow-wrapper">
+                        <div class="arrow"></div>
+                    </div>
+                </span>
             </div>
         </div>
     )
@@ -118,7 +145,7 @@ function Register({ authentication, setAuthentication, setLoading }) {
         autoFocus: true,
         maxLength: 15,
         minLength: 9,
-        placeholder: '+966512345678',
+        placeholder: '966512345678',
         onChange:formik.handleChange,
         onBlur:formik.handleBlur,
         ...formik.getFieldProps('phone'),

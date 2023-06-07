@@ -1229,6 +1229,138 @@ nav .close-nav {
   font-size: 14px;
 }
 
+.skip-login {
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  width: 500px;
+  height: 100px;
+  background: white;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+  border-radius: 20px;
+  transform: translateX(-50%);
+}
+
+.skip-login p {
+  z-index: 1;
+  color: white;
+}
+
+.skip-login::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  background-image: linear-gradient(180deg, var(--color-tertiary), var(--color-primary));
+  height: 500%;
+  animation: rotBGimg 3s linear infinite;
+  transition: all 0.2s linear;
+}
+
+@keyframes rotBGimg {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.skip-login::after {
+  content: '';
+  position: absolute;
+  background: #07182E;
+  inset: 5px;
+  border-radius: 15px;
+}  
+
+.skip-login  span {
+  z-index: 1;
+  --primary-color: var(--color-primary-tint);
+  --secondary-color: var(--color-primary);
+  --hover-color: white;
+  --arrow-width: 10px;
+  --arrow-stroke: 2px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 20px;
+  color: var(--hover-color);
+  padding: 1em 1.8em;
+  background: var(--primary-color);
+  display: flex;
+  transition: 0.2s background;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 530px) {
+  .skip-login {
+    width: 80%;
+    padding: 20px;
+  }
+  .skip-login p {
+    line-height: 1.5;
+    font-size: 13px;
+  }
+  .skip-login  span {
+    font-size: 13px;
+    padding: 0.8em 1.3em;
+    line-height: 1.2;
+  }
+}
+
+.skip-login  span .arrow-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skip-login  span .arrow {
+  margin-top: 1px;
+  width: var(--arrow-width);
+  background: var(--primary-color);
+  height: var(--arrow-stroke);
+  position: relative;
+  transition: 0.2s;
+}
+
+.skip-login  span .arrow::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  border: solid var(--hover-color);
+  border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+  display: inline-block;
+  top: -3px;
+  right: 3px;
+  transition: 0.2s;
+  padding: 3px;
+  transform: rotate(-45deg);
+}
+
+.skip-login  span:hover {
+  background-color: var(--hover-color);
+  color: var(--secondary-color);
+}
+
+.skip-login  span:hover .arrow {
+  background: var(--secondary-color);
+}
+
+.skip-login  span:hover .arrow:before {
+  right: 0;
+  border-color: var(--color-primary);
+}
+
+
+
 /* Cart Container */
 
 .cart-container {
