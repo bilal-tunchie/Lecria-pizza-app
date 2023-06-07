@@ -1249,7 +1249,7 @@ nav .close-nav {
 
 .skip-login p {
   z-index: 1;
-  color: white;
+  color: #07182E;
 }
 
 .skip-login::before {
@@ -1275,7 +1275,7 @@ nav .close-nav {
 .skip-login::after {
   content: '';
   position: absolute;
-  background: #07182E;
+  background: white;
   inset: 5px;
   border-radius: 15px;
 }  
