@@ -32,8 +32,8 @@ export const POST = async (req) => {
                 },
                 quantity: item.quantity
             })),
-            success_url: `http://localhost:3001/success`,
-            cancel_url: `http://localhost:3001/canceled`,
+            success_url: `https://leceriapizza.netlify.app/success`,
+            cancel_url: `https://leceriapizza.netlify.app/canceled`,
         }
 
         // Create Checkout Sessions from body params.
