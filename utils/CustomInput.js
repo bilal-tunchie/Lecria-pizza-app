@@ -1,8 +1,11 @@
+"use client"
+
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {  faCreditCard, faEyeSlash, faEye } from '@fortawesome/free-solid-svg-icons'
 import { useFormik } from 'formik';
 import CardValidator from 'card-validator';
+import Image from "next/image"
 import * as Yup from 'yup';
 import { Box, Modal, TextField, Button, Select, MenuItem, InputAdornment } from '@mui/material';
 import visa from "@public/images/visa.svg";
@@ -450,7 +453,7 @@ export function EditCardDetails({ cardDetailsModal, setCardDetailsModal, setProf
                 <h3 className='txt-c mb-20'>  خيارات الدفع المتاحة </h3>
                 <div className='payment-options'>
                     {[visa, master_card, mada].map( (option, i) => {
-                        return <img src={option} alt={option} key={i}/>
+                        return <Image src={option} alt={option} key={i}/>
                     })}
                 </div>
                 <form onSubmit={formik.handleSubmit}>
@@ -484,7 +487,7 @@ export function EditCardDetails({ cardDetailsModal, setCardDetailsModal, setProf
                                 {cardTypeImage === faCreditCard 
                                 ? <FontAwesomeIcon icon={faCreditCard} flip size='2xl'/> 
                                 : 
-                                <img src={cardTypeImage} alt={cardTypeImage} width="70"  />}
+                                <Image src={cardTypeImage} alt={cardTypeImage} width="70"  />}
                             </div>
                         </div>
                     </div>

@@ -77,20 +77,20 @@ export default function Login() {
                         setLoading={setLoading} 
                     />}
                 </div>
+                <div className='skip-login'>
+                    <p>ما لك خلق تسجل اضغط هنا</p>
+                    <span 
+                        onClick={signinUserImmediately}
+                    >
+                        تسجيل دخول تلقائي
+                        <div class="arrow-wrapper">
+                            <div class="arrow"></div>
+                        </div>
+                    </span>
+                </div>
             </div>
             <div className='image'>
                 <Image src={logo} alt="Login" width={500} height={500} />
-            </div>
-            <div className='skip-login'>
-                <p>ما لك خلق تسجل اضغط هنا</p>
-                <span 
-                    onClick={signinUserImmediately}
-                >
-                    تسجيل دخول تلقائي
-                    <div class="arrow-wrapper">
-                        <div class="arrow"></div>
-                    </div>
-                </span>
             </div>
         </div>
     )
