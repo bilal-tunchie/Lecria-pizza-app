@@ -1,5 +1,5 @@
 import Stripe from 'stripe';
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe('sk_test_51MsMgSG8ubawlCYPW0AGfGgAqakEN2ra2OBaxl5iIX5vR6zApVQ1zZm5qMqGBV81bAK9czK0pPTzjaOJC4ONHkHM00ApBUr9kQ');
 
 export const POST = async (req) => {
 
