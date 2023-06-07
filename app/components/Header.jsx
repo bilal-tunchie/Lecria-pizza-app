@@ -121,7 +121,7 @@ export default function Header() {
                                 }}
                             >
                                 <Link 
-                                    href={id !== 3 && to} 
+                                    href={id !== 3 ? to : ''} 
                                     className={ isActive === to && id !== 3 ? 'active' : ''} 
                                 >
                                     <FontAwesomeIcon icon={icon} />
