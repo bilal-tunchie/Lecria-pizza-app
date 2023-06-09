@@ -150,7 +150,7 @@ export default function CustomizePizza() {
                 <h3>تعديل الطلب</h3>
             </div>
             <div className='customize'>
-                <PizzaCard customOrder={customOrder}  />
+                {customOrder.length && <PizzaCard customOrder={customOrder}  />}
                 {customOrder.size && 
                 <SizeOptions 
                     customOrder={customOrder} 

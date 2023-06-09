@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import Link from "next/link"
 import Image from "next/image"
+import { useRouter } from 'next/navigation'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { offerData } from "@utils/menuData";;
@@ -10,9 +11,12 @@ import { useStateContext } from '../context/StateContext';
 import { EditName, EditPhoneEmail, EditPassword, ContactLanguage, EditCardDetails } from "@utils/CustomInput";
 import { ThemeProvider } from '@mui/material/styles';
 import { Switch } from '@mui/material';
-import Login from "./Login";
+import { toast } from 'react-hot-toast';
 
 export default function Account() {
+
+    const router = useRouter()
+    // const [isLoading, setIsLoading] = useState(true);
 
     const { 
         authentication, 
@@ -31,6 +35,12 @@ export default function Account() {
     const { details, otherDetails } = profileData
 
     useEffect(() => {
+    
+        if (router.pathname !== "/login" && !Object.keys(authentication).length) {
+            router.push("/login");
+            toast.error("يجب عليك تسجيل دخول اولا")
+        } 
+    
         setProfileData( prev => ({
             ...prev,
             details : prev.details.map( details => {
@@ -42,11 +52,12 @@ export default function Account() {
                 } else if (details.que === 'كلمة المرور') {
                     return { ...details, ans: password };
                 }
-
+    
                 return details;
             })
         }))
     }, [])
+
 
     useEffect(() => {
 		if (Object.keys(authentication).length) {
@@ -82,7 +93,6 @@ export default function Account() {
 
     return (
         <>
-            {Object.keys(authentication).length ? 
             <div className='account-page'>
                 <h2>حسابك الشخصي</h2>
                 <div className="account-container">
@@ -110,8 +120,6 @@ export default function Account() {
                     </div>
                 </div>
             </div>
-            :
-            <Login />}
         </>
     )
 }

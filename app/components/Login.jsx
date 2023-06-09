@@ -83,8 +83,8 @@ export default function Login() {
                         onClick={signinUserImmediately}
                     >
                         تسجيل دخول تلقائي
-                        <div class="arrow-wrapper">
-                            <div class="arrow"></div>
+                        <div className="arrow-wrapper">
+                            <div className="arrow"></div>
                         </div>
                     </span>
                 </div>

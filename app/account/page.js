@@ -1,4 +1,5 @@
 import Account from '../components/Account'
+import { Suspense } from 'react';
 
 export function generateMetadata() {
 
@@ -8,5 +9,9 @@ export function generateMetadata() {
 }
 
 export default function AccountPage() {
+    // return <Suspense fallback={<Loading />} >
+    //     <Account />
+    // </Suspense>
+
     return <Account />
 }
