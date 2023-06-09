@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
-        appDir: true,
+        serverComponentsExternalPackages: ['@acme/ui'],
     },
     // images: {
     //     domains: ['mponlineassets.s3.me-south-1.amazonaws.com'],
